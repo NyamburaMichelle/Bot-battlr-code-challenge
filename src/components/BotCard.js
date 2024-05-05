@@ -1,43 +1,19 @@
 import React from "react";
-import { useEffect, useState } from "react";
 
 
-const botTypeClasses = {
-  Assault: "icon military",
-  Defender: "icon shield",
-  Support: "icon plus circle",
-  Medic: "icon ambulance",
-  Witch: "icon magic",
-  Captain: "icon star",
-};
-
-
-
-//function handleDelete() {
- // fetch(`http://localhost:8002/bots/${bot.id}`){
-  //  method: "DELETE",
- // }
-//}
-
-
-
-function BotCard({ bot, onClick }) {
+function BotCard({ bot, clickHandler, handleDelete }) {
   return (
     <div className="ui column">
-      <div
-        className="ui card"
-        key={bot.id}
-        onClick={() => onClick}
-      >
+      <div className="ui card" key={bot.id} onClick={() => clickHandler(bot)}>
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
         </div>
         <div className="content">
           <div className="header">
             {bot.name}
-            <i className={botTypeClasses[bot.bot_class]} />
+            <i className={[bot.bot_class]} />
           </div>
-          <div className="meta text-wrap">
+          <div className="meta text-wrap" >
             <small>{bot.catchphrase}</small>
           </div>
         </div>
@@ -46,12 +22,9 @@ function BotCard({ bot, onClick }) {
             <i className="icon heartbeat" />
             {bot.health}
           </span>
-
           <span>
             <i className="icon lightning" />
             {bot.damage}
-          </span>
-          <span>
             <i className="icon shield" />
             {bot.armor}
           </span>
@@ -59,9 +32,9 @@ function BotCard({ bot, onClick }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
+                onClick={() => {
+                  handleDelete(bot);
+                }}
               >
                 x
               </button>
@@ -72,5 +45,4 @@ function BotCard({ bot, onClick }) {
     </div>
   );
 }
-
 export default BotCard;

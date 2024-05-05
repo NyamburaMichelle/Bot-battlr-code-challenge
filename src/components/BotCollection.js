@@ -1,34 +1,17 @@
 import React from "react";
-import { useState , useEffect} from "react";
 import BotCard from "./BotCard";
-
-
-function BotCollection() {
-  // Your code here
-  const[bots, setBots]=useState([])
-
-  useEffect(() => {
-    fetch("http://localhost:8002/bots")
-    .then((response) =>response.json())
-    .then((data) => setBots(data))
-}, []);
-
-
-const botList=bots.map(bot =>{
-  return <BotCard bot={bot}/>
-})
-
-
-
+function BotCollection({ collection, clickHandler, handleDelete }) {
   return (
-    <div className="ui four column grid">
+    <div className="ui four column grid" id="bot">
+      {"Cick on a bot to add it to your army."}
       <div className="row">
-        {/*...and here..*/}
-       {botList}
-
+        {collection.map((bot) => (
+          <BotCard key={bot.id} bot={bot} clickHandler={clickHandler} handleDelete={handleDelete} />
+        ))}
       </div>
     </div>
   );
 }
-
 export default BotCollection;
+
+//receive collection and map, pass down the rest
