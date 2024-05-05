@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect, useState } from "react";
+
 
 const botTypeClasses = {
   Assault: "icon military",
@@ -9,13 +11,23 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot }) {
+
+
+//function handleDelete() {
+ // fetch(`http://localhost:8002/bots/${bot.id}`){
+  //  method: "DELETE",
+ // }
+//}
+
+
+
+function BotCard({ bot, onClick }) {
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        onClick={() => onClick}
       >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />

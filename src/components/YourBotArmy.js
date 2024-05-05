@@ -1,14 +1,19 @@
 import React from "react";
+import BotCard from "./BotCard";
 
 function YourBotArmy() {
-  //your bot army code here...
+  
+  const handleBotClick = (id) => {
+    console.log("Bot clicked");
+    
+  };
 
   return (
     <div className="ui segment inverted olive bot-army">
       <div className="ui five column grid">
         <div className="row bot-army-row">
-          {/*...and here...*/}
-          Your Bot Army
+          
+          <BotCard onClick={handleBotClick} />
         </div>
       </div>
     </div>
@@ -16,3 +21,4 @@ function YourBotArmy() {
 }
 
 export default YourBotArmy;
+ 
