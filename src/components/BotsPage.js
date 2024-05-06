@@ -18,14 +18,14 @@ function BotsPage() {
     setArmy((army) => army.filter((it) => it.id !== bot.id));
   }
   useEffect(() => {
-    fetch("http://localhost:8002/bots")
+    fetch("https://bot-battlr-code-challenge-weld.vercel.app/")
       .then((res) => res.json())
       .then((data) => setBots(data));
   }, []);
 
   //delete bot either from army or from collection
   function handleDelete(bot) {
-    fetch(` http://localhost:8002/bots/${bot.id}`, {
+    fetch(` https://bot-battlr-code-challenge-weld.vercel.app//${bot.id}`, {
       method: "DELETE",
     }).then(() => {
       setBots((bots) => bots.filter((it) => it.id !== bot.id));
