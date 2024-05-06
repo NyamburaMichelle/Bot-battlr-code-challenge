@@ -7,10 +7,13 @@ function BotsPage() {
   const [bots, setBots] = useState([]);
   const [army, setArmy] = useState([]);
 
+  //enlist bot to army not twice 
   function enlist(bot) {
     if (army.includes(bot)) return;
     setArmy((army) => [...army, bot]);
   }
+
+  //remove bot 
   function retire(bot) {
     setArmy((army) => army.filter((it) => it.id !== bot.id));
   }
@@ -19,6 +22,8 @@ function BotsPage() {
       .then((res) => res.json())
       .then((data) => setBots(data));
   }, []);
+
+  //delete bot either from army or from collection
   function handleDelete(bot) {
     fetch(` http://localhost:8002/bots/${bot.id}`, {
       method: "DELETE",

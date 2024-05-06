@@ -1,5 +1,8 @@
 import React from "react";
 import BotCard from "./BotCard";
+
+//colection is to enlist, add to army
+//Passdown all the props to botcard. Map the collection in order to display he bots...
 function BotCollection({ collection, clickHandler, handleDelete }) {
   return (
     <div className="ui four column grid" id="bot">

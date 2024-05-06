@@ -1,6 +1,11 @@
 import React from "react";
 
-
+//receive props from botcollection
+//bot is to map...
+//handle delete is to delete
+//clickHandler is to enlist to army and to retire, passed down from both botcard and botrmy
+//clickHandler, can enlist clicked army
+//the other click handler retires it.
 function BotCard({ bot, clickHandler, handleDelete }) {
   return (
     <div className="ui column">
